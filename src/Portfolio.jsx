@@ -12,7 +12,6 @@ export default function Portfolio() {
     socials: [
       { icon: <FaGithub />, href: "https://github.com/Manasvi3107", label: "GitHub" },
       { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/manasvivaghela/", label: "LinkedIn" },
-      { icon: <FaEnvelope />, href: "mailto:vaghelamanasvi1@gmail.com", label: "Email" },
     ],
     techStack: [
       { name: "React", icon: <FaReact color="#61DBFB"/> },
