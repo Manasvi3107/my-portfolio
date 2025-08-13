@@ -72,7 +72,7 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen text-glassText selection:bg-neonPink/20 scroll-smooth relative overflow-x-hidden bg-animated-gradient">
       <Header name={data.name} resumeUrl={data.resumeUrl} />
-      <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 space-y-20">
+      <main className="flex flex-col items-center mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 space-y-20">
         <Hero data={data} />
         <TechStack stack={data.techStack} />
         <ExperienceSection items={data.experience} />
@@ -112,7 +112,6 @@ function Header({ name, resumeUrl }) {
 }
 
 /* ===== HERO ===== */
-/* ===== HERO ===== */
 function Hero({ data }) {
   const lines = [
     `Hey, I'm Manasvi Vaghela`,
@@ -142,31 +141,23 @@ function Hero({ data }) {
   }, [displayedText, typing, currentLine]);
 
   return (
-    <section id="home" className="py-16 relative glass-card overflow-hidden flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-8 md:gap-16">
-      
-      {/* Profile Photo */}
-      <div className="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-neonCyan shadow-neonGlow mx-auto md:mx-0">
+    <section id="home" className="py-16 relative glass-card overflow-hidden flex flex-col items-center text-center gap-8">
+      <div className="w-56 h-56 rounded-full overflow-hidden border-4 border-neonCyan shadow-neonGlow">
         <img src="/manu.jpg" alt={data.name} className="w-full h-full object-cover"/>
       </div>
-
-      {/* Text Section */}
-      <div className="flex-1 space-y-4">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-neonYellow via-neonPink to-neonCyan bg-clip-text text-transparent">
+      <div className="space-y-4">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-neonYellow via-neonPink to-neonCyan bg-clip-text text-transparent">
           {displayedText}<span className="blinking-cursor">|</span>
         </h1>
-        <p className="text-sm sm:text-base md:text-lg text-glassText/70">{data.role}</p>
-
-        <div className="flex flex-wrap gap-3 mt-4">
+        <p className="text-lg sm:text-xl md:text-2xl text-glassText/70">{data.role}</p>
+        <div className="flex flex-wrap gap-3 justify-center mt-4">
           {data.socials.map(s => (
-            <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="glass-btn flex items-center gap-1 px-3 py-1">
+            <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="glass-btn flex items-center gap-1 px-4 py-2 text-lg">
               {s.icon} {s.label}
             </a>
           ))}
         </div>
       </div>
-
-      {/* Neon Blobs */}
-      
       <style jsx>{`
         .blinking-cursor {
           font-weight: 100;
@@ -183,21 +174,19 @@ function Hero({ data }) {
   );
 }
 
-
-/* ===== TECH STACK ===== */
 /* ===== TECH STACK ===== */
 function TechStack({ stack }) {
   return (
     <section id="techstack" className="py-14">
-      <h2 className="text-3xl font-bold mb-8 text-neonYellow">Tech Stack</h2>
+      <h2 className="text-3xl font-bold mb-8 text-neonYellow text-center">Tech Stack</h2>
       <div className="flex flex-wrap gap-6 justify-center">
         {stack.map(t => (
           <div 
             key={t.name} 
-            className="glass-card flex flex-col items-center gap-2 cursor-pointer transform transition hover:scale-110 p-4"
+            className="glass-card flex flex-col items-center gap-2 cursor-pointer transform transition hover:scale-110 p-6"
           >
-            <div className="text-5xl">{t.icon}</div> {/* Bigger icon */}
-            <span className="text-xl font-semibold">{t.name}</span> {/* Bigger text */}
+            <div className="text-6xl">{t.icon}</div>
+            <span className="text-2xl font-semibold">{t.name}</span>
           </div>
         ))}
       </div>
@@ -205,15 +194,14 @@ function TechStack({ stack }) {
   );
 }
 
-
 /* ===== EXPERIENCE ===== */
 function ExperienceSection({ items }) {
   return (
     <section id="experience" className="py-14">
-      <h2 className="text-2xl font-bold mb-6 text-neonYellow">Experience</h2>
-      <div className="space-y-6">
+      <h2 className="text-3xl font-bold mb-8 text-neonYellow text-center">Experience</h2>
+      <div className="flex flex-col items-center gap-6">
         {items.map(e => (
-          <div key={e.role} className="glass-card">
+          <div key={e.role} className="glass-card w-full max-w-3xl p-6">
             <div className="flex justify-between items-center mb-3">
               <h3 className="font-semibold text-neonYellow">{e.role}</h3>
               <span className="text-glassText/70">{e.period}</span>
@@ -233,11 +221,11 @@ function ExperienceSection({ items }) {
 function ProjectsSection({ projects }) {
   return (
     <section id="projects" className="py-14">
-      <h2 className="text-2xl font-bold mb-6 text-neonYellow">Projects</h2>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <h2 className="text-3xl font-bold mb-8 text-neonYellow text-center">Projects</h2>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-center">
         {projects.map(p => (
           <div key={p.title} className="glass-card overflow-hidden hover:shadow-neonGlow transition-transform transform hover:scale-105">
-            <img src={p.image} alt={p.title} className="w-full h-48 object-cover"/>
+            <img src={p.image} alt={p.title} className="w-full h-56 object-cover"/>
             <div className="p-4 space-y-2">
               <h3 className="font-semibold text-neonYellow">{p.title}</h3>
               <p className="text-glassText/70 text-sm">{p.desc}</p>
@@ -260,9 +248,9 @@ function ProjectsSection({ projects }) {
 function ContactSection({ data }) {
   return (
     <section id="contact" className="py-14">
-      <h2 className="text-2xl font-bold mb-6 text-neonYellow">Contact</h2>
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="glass-card">
+      <h2 className="text-3xl font-bold mb-8 text-neonYellow text-center">Contact</h2>
+      <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+        <div className="glass-card p-6 w-full max-w-md">
           <p>Email: <a href={`mailto:${data.email}`} className="text-neonYellow hover:underline">{data.email}</a></p>
           <p>Location: {data.location}</p>
           <div className="flex gap-2 mt-2">
@@ -271,7 +259,7 @@ function ContactSection({ data }) {
             ))}
           </div>
         </div>
-        <div className="p-6 text-glassText/70">
+        <div className="p-6 text-glassText/70 max-w-md text-center">
           <p>Feel free to reach out for collaborations, internships, freelance work, or just to say hi! 🚀</p>
         </div>
       </div>
