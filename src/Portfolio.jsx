@@ -166,7 +166,7 @@ function Hero({ data }) {
       </div>
 
       {/* Neon Blobs */}
-      <div className="absolute top-5 left-5 w-20 h-20 bg-neonPink neon-blob opacity-50"></div>
+      <div className="absolute top-0 left-0 w-20 h-20 bg-neonPink neon-blob opacity-50 -z-10"></div>
       <div className="absolute top-32 right-20 w-28 h-28 bg-neonYellow neon-blob opacity-40"></div>
       <div className="absolute bottom-20 left-10 w-36 h-36 bg-neonCyan neon-blob opacity-30"></div>
 
