@@ -189,20 +189,26 @@ function Hero({ data }) {
 
 
 /* ===== TECH STACK ===== */
+/* ===== TECH STACK ===== */
 function TechStack({ stack }) {
   return (
     <section id="techstack" className="py-14">
-      <h2 className="text-2xl font-bold mb-6 text-neonYellow">Tech Stack</h2>
-      <div className="flex flex-wrap gap-4">
+      <h2 className="text-3xl font-bold mb-8 text-neonYellow">Tech Stack</h2>
+      <div className="flex flex-wrap gap-6 justify-center">
         {stack.map(t => (
-          <div key={t.name} className="glass-card flex items-center gap-2 cursor-pointer transform transition hover:scale-105">
-            {t.icon} <span>{t.name}</span>
+          <div 
+            key={t.name} 
+            className="glass-card flex flex-col items-center gap-2 cursor-pointer transform transition hover:scale-110 p-4"
+          >
+            <div className="text-5xl">{t.icon}</div> {/* Bigger icon */}
+            <span className="text-xl font-semibold">{t.name}</span> {/* Bigger text */}
           </div>
         ))}
       </div>
     </section>
   );
 }
+
 
 /* ===== EXPERIENCE ===== */
 function ExperienceSection({ items }) {
