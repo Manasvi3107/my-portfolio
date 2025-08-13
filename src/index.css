@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Glassmorphism Panels */
+.glass-card {
+  @apply bg-glassBg backdrop-blur-xs border border-glassBorder rounded-3xl shadow-glass p-6 transition-transform duration-300 text-glassText;
+}
+.glass-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px #00FFFF, 0 0 50px #FF4DFF;
+}
+
+/* Floating Animation */
+.animate-float { animation: float 6s ease-in-out infinite; }
+
+/* Fade In Up Animation */
+.animate-fadeInUp { animation: fadeInUp 1s forwards; }
+.animate-fadeInUp.delay-100 { animation-delay: 0.1s; }
+.animate-fadeInUp.delay-200 { animation-delay: 0.2s; }
+.animate-fadeInUp.delay-300 { animation-delay: 0.3s; }
+
+/* Hero Background Gradient Animation */
+.bg-animated-gradient {
+  background: linear-gradient(270deg, #0D0D1A, #1A1A2E, #0D0D1A, #1A1A2E);
+  background-size: 200% 200%;
+  animation: gradientBackground 20s ease infinite;
+}
+
+/* Glowing Buttons */
+.glass-btn {
+  @apply px-4 py-2 rounded-full font-semibold transition-all duration-300;
+  background: rgba(0,255,255,0.1);
+  color: #00FFFF;
+  border: 1px solid #00FFFF;
+}
+.glass-btn:hover {
+  background: rgba(255,77,255,0.2);
+  color: #FFD700;
+  box-shadow: 0 0 10px #00FFFF, 0 0 20px #FF4DFF, 0 0 30px #FFD700;
+}
+
+/* Tags */
+.tag {
+  @apply px-2 py-1 rounded-full text-xs font-semibold;
+  background: rgba(255,255,255,0.05);
+  color: #FFD700;
+  border: 1px solid #FFD700;
+}
+
+/* Floating Neon Blobs */
+.neon-blob {
+  border-radius: 50%;
+  position: absolute;
+  mix-blend-mode: screen;
+  animation: float 6s ease-in-out infinite;
+}
