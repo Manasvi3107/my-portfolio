@@ -112,13 +112,14 @@ function Header({ name, resumeUrl }) {
 }
 
 /* ===== HERO ===== */
+/* ===== HERO ===== */
 function Hero({ data }) {
   const lines = [
     `Hey, I'm Manasvi Vaghela`,
-    "Hey, I'm Front-End Developer",
-    "Hey, I'm Full-Stack Learner",
-    "Hey, I'm UI/UX Enthusiast",
-    "Hey, I'm Futuristic Web Builder",
+    "Front-End Developer",
+    "Full-Stack Learner",
+    "UI/UX Enthusiast",
+    "Futuristic Web Builder",
   ];
 
   const [currentLine, setCurrentLine] = useState(0);
@@ -142,30 +143,33 @@ function Hero({ data }) {
   }, [displayedText, typing, currentLine]);
 
   return (
-    <section id="home" className="flex flex-col items-center text-center py-16 relative glass-card overflow-hidden">
+    <section id="home" className="py-16 relative glass-card overflow-hidden flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-8 md:gap-16">
+      
       {/* Profile Photo */}
-      <div className="mx-auto mb-6 w-32 h-32 rounded-full overflow-hidden border-4 border-neonCyan shadow-neonGlow">
+      <div className="flex-shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-neonCyan shadow-neonGlow mx-auto md:mx-0">
         <img src="/manu.jpg" alt={data.name} className="w-full h-full object-cover"/>
+      </div>
+
+      {/* Text Section */}
+      <div className="flex-1 space-y-4">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-neonYellow via-neonPink to-neonCyan bg-clip-text text-transparent">
+          {displayedText}<span className="blinking-cursor">|</span>
+        </h1>
+        <p className="text-sm sm:text-base md:text-lg text-glassText/70">{data.role}</p>
+
+        <div className="flex flex-wrap gap-3 mt-4">
+          {data.socials.map(s => (
+            <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="glass-btn flex items-center gap-1 px-3 py-1">
+              {s.icon} {s.label}
+            </a>
+          ))}
+        </div>
       </div>
 
       {/* Neon Blobs */}
       <div className="absolute top-5 left-5 w-20 h-20 bg-neonPink neon-blob opacity-50"></div>
       <div className="absolute top-32 right-20 w-28 h-28 bg-neonYellow neon-blob opacity-40"></div>
       <div className="absolute bottom-20 left-10 w-36 h-36 bg-neonCyan neon-blob opacity-30"></div>
-
-      {/* Typing Text */}
-      <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mt-4 bg-gradient-to-r from-neonYellow via-neonPink to-neonCyan bg-clip-text text-transparent animate-fadeInUp">
-        {displayedText}
-        <span className="blinking-cursor">|</span>
-      </h1>
-
-      <p className="text-base md:text-lg text-glassText/70 mt-2 animate-fadeInUp delay-100">{data.role}</p>
-
-      <div className="flex justify-center gap-3 mt-6 animate-fadeInUp delay-300">
-        {data.socials.map(s => (
-          <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="glass-btn flex items-center gap-1">{s.icon} {s.label}</a>
-        ))}
-      </div>
 
       <style jsx>{`
         .blinking-cursor {
@@ -182,6 +186,7 @@ function Hero({ data }) {
     </section>
   );
 }
+
 
 /* ===== TECH STACK ===== */
 function TechStack({ stack }) {
