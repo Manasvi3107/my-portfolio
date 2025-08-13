@@ -116,9 +116,8 @@ function Header({ name, resumeUrl }) {
 function Hero({ data }) {
   const lines = [
     `Hey, I'm Manasvi Vaghela`,
-    "Front-End Developer",
-    "Full-Stack Learner",
-    "UI/UX Enthusiast",
+    "Hey, I'm Front-End Developer",
+    "Hey, I'm Full-Stack Learner",
     "Futuristic Web Builder",
   ];
 
